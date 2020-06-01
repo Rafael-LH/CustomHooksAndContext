@@ -3,14 +3,27 @@ import './App.css'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import Detail from './pages/Detail'
-import Pepito from './context/StaticContext'
-import {GifsContextProvider} from './context/GifsContext'
 import { Link, Route } from "wouter"
+import StaticContext from './context/StaticContext'
+import { GifsContextProvider } from './context/GifsContext'
+
+/**
+ * El contexto tiene dos partes muy importantes 
+ * 1: Consumidor (Para poder consumir ese objeto)
+ * 2: Proveedor (Para proveer ese objeto, puedes indicar que este objeto magico donde lo podras utilizar)
+ */
+
+/**
+ * El StaticContext.Provider funciona muy parecido al provider de redux
+ * En caso de no pasarle ningun valor al StaticContext.Providor el valor por defecto sera el que le indicamos en StaticContext
+ */
 
 export default function App() {
   return (
-  <Pepito.Provider value={{name: 'midudev',
-  suscribeteAlCanal: true}}>
+    <StaticContext.Provider value={{
+      name: 'Rafael',
+      frontend: true,
+    }}>
       <div className="App">
         <section className="App-content">
           <Link to="/">
@@ -23,7 +36,7 @@ export default function App() {
             />
             <Route
               component={SearchResults}
-              path="/search/:keyword"  />
+              path="/search/:keyword" />
             <Route
               component={Detail}
               path="/gif/:id"
@@ -31,6 +44,6 @@ export default function App() {
           </GifsContextProvider>
         </section>
       </div>
-    </Pepito.Provider>
+    </StaticContext.Provider >
   )
 }

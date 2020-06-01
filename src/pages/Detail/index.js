@@ -1,15 +1,18 @@
-import React from 'react'
-import Gif from '../../components/Gif'
-import useGlobalGifs from '../../hooks/useGlobalGifs'
+import React, { useContext } from 'react'
+import StaticContext from '../../context/StaticContext'
+import { GifsContextProvider } from '../../context/GifsContext'
 
-export default function Detail ({ params }) {
-  const gifs = useGlobalGifs()
+/**
+ * Esto biene siendo como connect de react-redux, que es donde quiero consumir mi contexto donde 
+ * quiero utilizarlo
+ */
 
-  const gif = gifs.find(singleGif =>
-    singleGif.id === params.id
-  )
+export default function Detail({ params }) {
+  const StaticConfig = useContext(StaticContext)
+  console.log(StaticConfig);
 
-  console.log(gif)
+  const GifsContext = useContext(GifsContextProvider)
+  console.log(GifsContext);
 
-  return <Gif {...gif} />
+  return <h1>GIT con id {params.id}</h1>
 }
