@@ -13,7 +13,9 @@ const fromApiResponseToGifs = apiResponse => {
   return []
 }
 
-export default function getGifs({ limit = 25, keyword = 'dragon-ball-z' } = {}) {
+// si no me biene nada en el metodo getGifs() entonses sera igual a objeto vacio
+export default function getGifs({ limit = 25, keyword = null } = {}) {
+
   const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=0&rating=G&lang=en`
 
   return fetch(apiURL)

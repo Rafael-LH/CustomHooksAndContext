@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import { createContext } from 'react'
 
 // este objeto es como un objeto magico ya que podemos acceder a el desde cual quier sitio
 // El create context no se le pasa nada ni por parametro ni por estado todo es inyectado por medio de un hook
