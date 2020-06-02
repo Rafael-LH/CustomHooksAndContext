@@ -44,6 +44,6 @@ export default function App() {
           </GifsContextProvider>
         </section>
       </div>
-    </StaticContext.Provider >
+    </StaticContext.Provider>
   )
 }
